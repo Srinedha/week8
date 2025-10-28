@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: circleci/python:3.11
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            python -m pip install --upgrade pip
+      - run:
+          name: Run unit tests
+          command: |
+            python -m unittest tests.py
+
+workflows:
+  version: 2
+  run_tests:
+    jobs:
+      - test
