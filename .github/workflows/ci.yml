@@ -1,1 +1,30 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: Install unittest
+      run: |
+        pip install pytest
+
+    - name: Run tests
+      run: |
+        python -m unittest discover
+
+    - name: Pipeline completed
+      run: echo "CI pipeline finished successfully."
 
