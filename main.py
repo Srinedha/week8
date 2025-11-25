@@ -7,3 +7,4 @@ if __name__	== '__main__':
     say_hello(name)
     up = to_upper(name) 
     print(up)
+print(CI Pipeline running)
